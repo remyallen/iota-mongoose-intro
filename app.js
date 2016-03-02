@@ -13,7 +13,9 @@ mongoose.model(
     'Person',
     new Schema({
         "name": String,
-        "location": String
+        "location": String,
+        "nickname": String,
+        "age": Number
     },
     {
         collection: 'people'
@@ -36,7 +38,9 @@ app.get('/person', function(req, res) {
 app.post('/person', function(req, res) {
     var addedPerson = new Person({
         "name": req.body.name,
-        "location": req.body.location
+        "location": req.body.location,
+        "nickname": req.body.nickname,
+        "age": req.body.age
     });
 
     addedPerson.save(function(err, data) {

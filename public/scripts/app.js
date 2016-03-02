@@ -4,6 +4,8 @@ myApp.controller('IndexController', ['$scope', '$http', function($scope, $http) 
     $scope.people;
     $scope.name = '';
     $scope.location = '';
+    $scope.nickname = '';
+    $scope.age = '';
 
     function getData() {
         $http.get('/person').then(function(response) {
@@ -15,7 +17,9 @@ myApp.controller('IndexController', ['$scope', '$http', function($scope, $http) 
     $scope.addPerson = function() {
         var person = {
             name: $scope.name,
-            location: $scope.location
+            location: $scope.location,
+            nickname: $scope.nickname,
+            age: $scope.age
         };
 
         $http.post('/person', person).then(function(response) {
